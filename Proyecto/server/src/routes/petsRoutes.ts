@@ -1,5 +1,7 @@
 import {Router} from 'express';
 
+import {petsController} from '../controllers/petsController'
+
 class PetsRoutes{
 
     public router: Router = Router();
@@ -9,7 +11,11 @@ class PetsRoutes{
     }
 
     config(): void {
-        this.router.get('/',(req, res) => res.send('Pets'));
+        this.router.get('/', petsController.list);
+        this.router.get('/:id', petsController.getOne);
+        this.router.post('/', petsController.create);
+        this.router.put('/:id', petsController.update);
+        this.router.delete('/:id', petsController.delete);
     }
 }
 
