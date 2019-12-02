@@ -21,12 +21,37 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/app/Template/doglife/images/dog_1.jpg",
+              "src/app/Template/doglife/images/dog_2.jpg",
+              "src/app/Template/doglife/images/dog_3.jpg",
+              "src/app/Template/doglife/images/dog_4.jpg",
+              "src/app/Template/doglife/images/dog_5.jpg",
+              "src/app/Template/doglife/images/dog_6.jpg",
+              "src/app/Template/doglife/images/dog_doctor.jpg",
+              "src/app/Template/doglife/images/person_1.jpg",
+              "src/app/Template/doglife/images/person_2.jpg",
+              "src/app/Template/doglife/images/banner_dog_1.jpg",
+              "src/app/Template/doglife/images/banner_dog_2.jpg",
+              "src/app/Template/doglife/images/banner_dog_3.jpg",
+              "src/app/Template/doglife/images/servicio_1.jpg"
+
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/app/Template/doglife/js/jquery-3.3.1.min.js",
+              "src/app/Template/doglife/js/jquery-ui.js",
+              "src/app/Template/doglife/js/popper.min.js",
+              "src/app/Template/doglife/js/bootstrap.min.js",
+              "src/app/Template/doglife/js/owl.carousel.min.js",
+              "src/app/Template/doglife/js/jquery.countdown.min.js",
+              "src/app/Template/doglife/js/jquery.easing.1.3.js",
+              "src/app/Template/doglife/js/aos.js",
+              "src/app/Template/doglife/js/jquery.fancybox.min.js",
+              "src/app/Template/doglife/js/jquery.sticky.js",
+              "src/app/Template/doglife/js/isotope.pkgd.min.js",
+              "src/app/Template/doglife/js/main.js"]
           },
           "configurations": {
             "production": {
