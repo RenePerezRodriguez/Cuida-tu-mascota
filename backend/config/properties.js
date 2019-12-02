@@ -1,4 +1,4 @@
 module.exports = {
   PORT: process.env.PORT || 3000,
-  DB: 'mongodb://localhost:27017/dbSalvaTuMascota'
+  DB: 'mongodb://localhost:27017/dbCuidaTuMascota'//nombre de la base
 }
