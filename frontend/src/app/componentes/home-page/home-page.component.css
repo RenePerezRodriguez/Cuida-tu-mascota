@@ -1,0 +1,15 @@
+.banner-area {
+  background: url(../../Template/doglife/images/banner_dog_3.jpg) center;
+  background-size: cover;
+  position: relative;
+}
+.banner{
+  width:620px;
+  height: 100px;
+  margin:7px auto;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  padding-left:190px;
+}
