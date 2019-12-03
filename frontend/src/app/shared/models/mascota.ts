@@ -13,5 +13,7 @@ export interface MascotaI {
 
     tamanio?: string;
 
+    adopcion?: boolean;
+
     userUid?: string; // ID DEL PROPIETARIO
   }
