@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 /* FIREBASE */
 import {AngularFirestoreModule} from '@angular/fire/firestore';
@@ -18,11 +20,16 @@ import { Page404Component } from './components/pages/page404/page404.component';
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     ListPetsComponent,
     ModalLoginComponent,
     ModalRegisterComponent,
     ProfileComponent,
     Page404Component
+=======
+    NavigationComponent,
+    FooterComponent
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
