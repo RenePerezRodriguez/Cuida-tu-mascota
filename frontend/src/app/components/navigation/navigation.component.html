@@ -20,15 +20,15 @@
                 <a class="nav-link" routerLink="#"><i class="fas fa-address-book"></i> Contactanos</a>
             </li>
             <li class="nav-item" *ngIf="!isLogged">
-                <a class="nav-link" routerLink="/user/login">Login
+                <a class="nav-link" routerLink="/user/login"><i class="fas fa-user"></i>Iniciar Sesion
                 </a>
               </li>
               <li class="nav-item" *ngIf="!isLogged">
-                <a class="nav-link" routerLink="/user/register">Register
+                <a class="nav-link" routerLink="/user/register"><i class="fas fa-user-edit"></i>Registrarse
                 </a>
               </li>
               <li class="nav-item" *ngIf="isLogged">
-                <a href="#" class="nav-link" (click)="onLogout()">Logout
+                <a href="#" class="nav-link" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion
                 </a>
               </li>
             <!--<li class="nav-item dropdown">
