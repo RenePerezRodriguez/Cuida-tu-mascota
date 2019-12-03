@@ -1,8 +1,7 @@
 export interface Roles {
-
-  administrador?: boolean;
-
-  admin?: boolean;
+  admin2?: boolean; // ADMIN TOTAL
+  admin1?: boolean; // VETERINARI@
+  admin0?: boolean; // USUARIO NORMAL
 }
 
 export interface UserInterface {

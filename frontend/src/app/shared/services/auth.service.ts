@@ -31,21 +31,12 @@ export class AuthService {
     });
   }
 
-  loginFacebookUser() {
-    return this.afsAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
-      .then(credential => this.updateUserData(credential.user));
-  }
-
-  loginGoogleUser() {
-    return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-      .then(credential => this.updateUserData(credential.user));
-  }
-
   logoutUser() {
     return this.afsAuth.auth.signOut();
   }
 
   isAuth() {
+    // tslint:disable-next-line: no-shadowed-variable
     return this.afsAuth.authState.pipe(map(auth => auth));
   }
 
@@ -55,12 +46,13 @@ export class AuthService {
       id: user.uid,
       email: user.email,
       roles: {
-
+        admin2: false,
+        admin1: false,
+        admin0: true
       }
     };
     return userRef.set(data, { merge: true });
   }
-
 
   isUserAdmin(userUid) {
     return this.afs.doc<UserInterface>(`users/${userUid}`).valueChanges();
