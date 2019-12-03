@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: "OpenSans";
+    font-style: normal;
+    src: local("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf"),local(OpenSans-Regular),url("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf");
+  }
+.OpenSans{
+    font-family: "OpenSans";
+    text-decoration: none;
+}
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  src: local("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf"),local(OpenSans-Regular),url("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf");
+}
+.OpenSans{
+  font-family: "OpenSans";
+  text-decoration: none;
+}
