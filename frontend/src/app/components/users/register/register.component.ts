@@ -6,11 +6,11 @@ import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
-  selector: 'app-modal-register',
-  templateUrl: './modal-register.component.html',
-  styleUrls: ['./modal-register.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class ModalRegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private storage: AngularFireStorage) { }
   @ViewChild('imageUser') inputImageUser: ElementRef;
