@@ -4,6 +4,10 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
+import { UserInterface } from '../../../shared/models/user';
+
+
+
 
 @Component({
   selector: 'app-register',
@@ -13,11 +17,17 @@ import { Observable } from 'rxjs/internal/Observable';
 export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private storage: AngularFireStorage) { }
+   user: UserInterface = {
+    nombreUsuario: '',
+    email: '',
+    photoUrl: '',
+    roles: {}
+  };
   @ViewChild('imageUser') inputImageUser: ElementRef;
 
+  public nombreUsuario = '';
   public email = '';
   public password = '';
-
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
@@ -40,10 +50,10 @@ export class RegisterComponent implements OnInit {
         this.authService.isAuth().subscribe(user => {
           if (user) {
             user.updateProfile({
-              displayName: '',
+              displayName: this.nombreUsuario,
               photoURL: this.inputImageUser.nativeElement.value
             }).then(() => {
-              this.router.navigate(['admin/list-books']);
+              this.router.navigate(['user/profile']);
             }).catch((error) => console.log('error', error));
           }
         });
@@ -63,7 +73,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onLoginRedirect(): void {
-    this.router.navigate(['admin/list-books']);
+    this.router.navigate(['user/profile']);
   }
 
 }

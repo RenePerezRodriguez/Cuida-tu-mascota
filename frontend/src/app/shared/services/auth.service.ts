@@ -18,8 +18,8 @@ export class AuthService {
       this.afsAuth.auth.createUserWithEmailAndPassword(email, pass)
         .then(userData => {
           resolve(userData),
-            this.updateUserData(userData.user)
-        }).catch(err => console.log(reject(err)))
+            this.updateUserData(userData.user);
+        }).catch(err => console.log(reject(err)));
     });
   }
 
@@ -33,12 +33,12 @@ export class AuthService {
 
   loginFacebookUser() {
     return this.afsAuth.auth.signInWithPopup(new auth.FacebookAuthProvider())
-      .then(credential => this.updateUserData(credential.user))
+      .then(credential => this.updateUserData(credential.user));
   }
 
   loginGoogleUser() {
     return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-      .then(credential => this.updateUserData(credential.user))
+      .then(credential => this.updateUserData(credential.user));
   }
 
   logoutUser() {
@@ -49,15 +49,16 @@ export class AuthService {
     return this.afsAuth.authState.pipe(map(auth => auth));
   }
 
-  private updateUserData(user) {
+  updateUserData(user) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
     const data: UserInterface = {
       id: user.uid,
       email: user.email,
       roles: {
+
       }
-    }
-    return userRef.set(data, { merge: true })
+    };
+    return userRef.set(data, { merge: true });
   }
 
 
