@@ -4,10 +4,6 @@ import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
 import { Observable } from 'rxjs/internal/Observable';
-import { UserInterface } from '../../../shared/models/user';
-
-
-
 
 @Component({
   selector: 'app-register',
@@ -17,12 +13,7 @@ import { UserInterface } from '../../../shared/models/user';
 export class RegisterComponent implements OnInit {
 
   constructor(private router: Router, private authService: AuthService, private storage: AngularFireStorage) { }
-   user: UserInterface = {
-    nombreUsuario: '',
-    email: '',
-    photoUrl: '',
-    roles: {}
-  };
+
   @ViewChild('imageUser') inputImageUser: ElementRef;
 
   public nombreUsuario = '';
@@ -35,7 +26,6 @@ export class RegisterComponent implements OnInit {
   }
 
   onUpload(e) {
-    // console.log('subir', e.target.files[0]);
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
     const filePath = `uploads/profile_${id}`;
@@ -44,6 +34,7 @@ export class RegisterComponent implements OnInit {
     this.uploadPercent = task.percentageChanges();
     task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
   }
+
   onAddUser() {
     this.authService.registerUser(this.email, this.password)
       .then((res) => {
@@ -57,18 +48,6 @@ export class RegisterComponent implements OnInit {
             }).catch((error) => console.log('error', error));
           }
         });
-      }).catch(err => console.log('err', err.message));
-  }
-  onLoginGoogle(): void {
-    this.authService.loginGoogleUser()
-      .then((res) => {
-        this.onLoginRedirect();
-      }).catch(err => console.log('err', err.message));
-  }
-  onLoginFacebook(): void {
-    this.authService.loginFacebookUser()
-      .then((res) => {
-        this.onLoginRedirect();
       }).catch(err => console.log('err', err.message));
   }
 
