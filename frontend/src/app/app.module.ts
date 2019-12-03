@@ -14,6 +14,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { RegisterComponent } from './components/users/register/register.component';
 import { LoginComponent } from './components/users/login/login.component';
+import { RegistrarMComponent } from './components/mascota/registrar-m/registrar-m.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { LoginComponent } from './components/users/login/login.component';
     AppComponent,
     NavigationComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    RegistrarMComponent
   ],
   imports: [
     BrowserModule,
