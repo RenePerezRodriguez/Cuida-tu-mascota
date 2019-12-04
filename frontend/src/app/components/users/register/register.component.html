@@ -1,12 +1,12 @@
 <section id="register" class="mb-5 mt-5">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-4 mx-auto">
-        <div class="card_register">
-          <div class="card">
+      <div class="col-md-6 col-sm-12 col-md-4 mx-auto">
+        <div class="card_register">          
+          <div class="card border-primary">
             <div class="card-body text-center">
               <form #formRegister="ngForm" (ngSubmit)="onAddUser()">
-                <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Registrar</h1>
                 <div class="alert alert-danger" role="alert" *ngIf="isError">
                   {{msgError}}
                 </div>
@@ -31,7 +31,14 @@
                 <hr>
                 <div class="form-group">
                   <h5>Seleccionar image:</h5>
-                  <input type="file" accept=".png, .jpg" (change)="onUpload($event)">
+                  <!--<input type="file" accept=".png, .jpg" (change)="onUpload($event)">-->
+
+                  
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" accept=".png, .jpg" (change)="onUpload($event)">
+                    <label class="custom-file-label" for="customFile">Elige una imagen</label>
+                  </div>
+
                 </div>
                 <div class="progress">
                   <div [style.visibility]="(uploadPercent == 0) ? 'hidden' : 'visible'" class="progress-bar progress-bar-striped bg-success"
@@ -40,12 +47,13 @@
                 </div>
                 <br>
                 <input #imageUser type="hidden" [value]="urlImage | async">
-                <button *ngIf="urlImage | async; else btnDisabled" type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+                <button *ngIf="(uploadPercent == null) || (urlImage | async); else btnDisabled" type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
                 <ng-template #btnDisabled>
-                  <button type="submit" disabled=true class="btn btn-lg btn-secondary btn-block">Register</button>
+                  <button type="submit" disabled=true class="btn btn-lg btn-secondary btn-block">Registrar</button>
                 </ng-template>
+                <br>
                 <div class="form-group">
-                  <a routerLink="/user/login" class="form-control login-user">¿Ya tienes Cuenta?<br> 🐾Inicia Sesion!🐾</a>
+                  <a routerLink="/user/login" class=" login-user">¿Ya tienes Cuenta?<br> 🐾Inicia Sesion!🐾</a>
                 </div>
               </form>
             </div>
