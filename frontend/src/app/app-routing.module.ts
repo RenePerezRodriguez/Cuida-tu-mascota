@@ -5,6 +5,9 @@ import { RegisterComponent } from 'src/app/components/users/register/register.co
 import { ProfileComponent } from 'src/app/components/users/profile/profile.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 
+import { HomeComponent } from './components/pages/home/home.component';
+
+
 import { MascotaComponent } from './components/CRUDS/mascota/mascota.component';
 import { HorarioComponent } from './components/CRUDS/horario/horario.component';
 import { VacunaComponent } from './components/CRUDS/vacuna/vacuna.component';
@@ -15,12 +18,7 @@ import { ReservaComponent } from './components/CRUDS/reserva/reserva.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: 'home', loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule) },
+  { path: '', component: HomeComponent },
   { path: 'user/login', component: LoginComponent },
   { path: 'user/register', component: RegisterComponent },
   { path: 'user/profile', component: ProfileComponent, canActivate: [AuthGuard] },
