@@ -23,6 +23,7 @@ import { VacunaComponent } from './components/CRUDS/vacuna/vacuna.component';
 import { ConsejoComponent } from './components/CRUDS/consejo/consejo.component';
 import { ReservaComponent } from './components/CRUDS/reserva/reserva.component';
 import { HomeComponent } from './components/pages/home/home.component';
+import { ModalConsejoComponent } from './components/modals/modal-consejo/modal-consejo.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { HomeComponent } from './components/pages/home/home.component';
     HorarioComponent,
     VacunaComponent,
     ConsejoComponent,
-    ReservaComponent
+    ReservaComponent,
+    ModalConsejoComponent
 
   ],
   imports: [

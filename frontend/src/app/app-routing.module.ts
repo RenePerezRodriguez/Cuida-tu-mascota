@@ -30,6 +30,7 @@ const routes: Routes = [
   { path: 'CRUD/reserva', component: ReservaComponent },
 
   { path: 'admin', loadChildren: () => import('./components/admin/admin.module').then(m => m.AdminModule) },
+  //{ path: '**', component: Page404Component }
  ];
 
 @NgModule({

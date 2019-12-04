@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
 import { MascotaI } from '../models/mascota';
 import { UserInterface} from '../models/user';
+import { ConsejoI} from '../models/consejos';
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +27,14 @@ export class DataApiService {
   private userDoc: AngularFirestoreDocument<UserInterface>;
   private user: Observable<UserInterface>;
   public selectedUser: UserInterface = {
+    id: null
+  };
+  // Consejo
+  private consejosCollection: AngularFirestoreCollection<ConsejoI>;
+  private consejos: Observable<ConsejoI[]>;
+  private consejoDoc: AngularFirestoreDocument<ConsejoI>;
+  private consejo: Observable<ConsejoI>;
+  public selectedConsejo: ConsejoI = {
     id: null
   };
 

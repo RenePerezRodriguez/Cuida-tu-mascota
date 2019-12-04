@@ -22,6 +22,7 @@ export class ProfileComponent implements OnInit {
   private users: UserInterface[];
   public isAdmin: any = null;
   public userUid: string = null;
+  CodigoQRDelUsuario = '';
   user: UserInterface = {
     email: '',
     photoUrl: '',
@@ -51,4 +52,23 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
+  getListUsers() {
+    this.dataApi.getAllUsers()
+      .subscribe(users => {
+        this.users = users;
+      });
+  }
+
+  onDeleteUser(idUser: string): void {
+    const confirmacion = confirm('Are you sure?');
+    if (confirmacion) {
+      this.dataApi.deleteUser(idUser);
+    }
+  }
+
+  onPreUpdateUser(user: UserInterface) {
+    console.log('USER', user);
+    this.dataApi.selectedUser = Object.assign({}, user);
+  }
 }
+
