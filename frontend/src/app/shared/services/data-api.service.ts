@@ -119,4 +119,45 @@ export class DataApiService {
     this.userDoc = this.afs.doc<MascotaI>(`users/${idUser}`);
     this.userDoc.delete();
   }
+
+  // Consejo
+  getAllConsejos() {
+    this.consejosCollection = this.afs.collection<ConsejoI>('consejos');
+    return this.consejos = this.consejosCollection.snapshotChanges()
+      .pipe(map(changes => {
+        return changes.map(action => {
+          const data = action.payload.doc.data() as ConsejoI;
+          data.id = action.payload.doc.id;
+          return data;
+        });
+      }));
+  }
+
+  getOneConsejo(idConsejo: string) {
+    this.consejoDoc = this.afs.doc<ConsejoI>(`consejos/${idConsejo}`);
+    return this.consejo = this.consejoDoc.snapshotChanges().pipe(map(action => {
+      if (action.payload.exists === false) {
+        return null;
+      } else {
+        const data = action.payload.data() as MascotaI;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
+  }
+
+  addConsejo(consejo: ConsejoI): void {
+    this.consejosCollection.add(consejo);
+  }
+
+  updateConsejo(consejo: ConsejoI): void {
+    let idConsejo = consejo.id;
+    this.consejoDoc = this.afs.doc<ConsejoI>(`consejos/${idConsejo}`);
+    this.consejoDoc.update(consejo);
+  }
+
+  deleteConsejo(idConsejo: string): void {
+    this.consejoDoc = this.afs.doc<ConsejoI>(`consejos/${idConsejo}`);
+    this.consejoDoc.delete();
+  }
 }
