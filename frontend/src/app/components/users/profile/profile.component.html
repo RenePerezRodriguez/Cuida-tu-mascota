@@ -22,7 +22,7 @@
                             </div>
                             <div class="row user-details">
                                 <div class="col-12">
-                                    <img src="{{user.photoUrl}}" class="card-img-top rounded-circle img-thumbnail" alt="profile">
+                                    <img [src]="user.photoUrl == null ? '/assets/noimage.png' : user.photoUrl" class="card-img-top rounded-circle img-thumbnail" alt="profile">
                                     <h6 *ngIf="providerId != 'password'">{{user.codUser}}</h6>
                                     <h6>{{user.nombreUsuario}}</h6>
     
