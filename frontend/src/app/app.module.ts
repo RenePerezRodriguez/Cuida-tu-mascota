@@ -22,12 +22,14 @@ import { HorarioComponent } from './components/CRUDS/horario/horario.component';
 import { VacunaComponent } from './components/CRUDS/vacuna/vacuna.component';
 import { ConsejoComponent } from './components/CRUDS/consejo/consejo.component';
 import { ReservaComponent } from './components/CRUDS/reserva/reserva.component';
+import { HomeComponent } from './components/pages/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    HomeComponent,
     RegisterComponent,
     LoginComponent,
     RegistrarMComponent,
@@ -38,7 +40,7 @@ import { ReservaComponent } from './components/CRUDS/reserva/reserva.component';
     VacunaComponent,
     ConsejoComponent,
     ReservaComponent
-    
+
   ],
   imports: [
     BrowserModule,

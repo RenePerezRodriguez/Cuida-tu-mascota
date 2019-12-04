@@ -16,4 +16,20 @@ export interface UserInterface {
   password?: string;
 
   roles?: Roles;
+
+  horario?: HorarioI;
+}
+
+export interface HorarioI {
+  id?: string;
+
+  horaInicio?: string;
+
+  horaFin?: string;
+
+  horaDescansoInicio?: string;
+
+  horaDescansoFin?: string;
+
+  userUid?: string; // ID DEL PROPIETARIO
 }
