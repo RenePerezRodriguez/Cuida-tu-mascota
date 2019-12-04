@@ -1,0 +1,16 @@
+.center {
+    font-size: medium;
+    text-align: center;
+    padding: 10px;
+    vertical-align: middle;
+    font-weight: normal;
+    background: #BDBDBD;
+    
+}
+.fila{
+    vertical-align: middle;
+}
+.right {
+    position: relative;
+    padding: 10px;
+}

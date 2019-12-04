@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Mascota } from 'src/app/interfaces/mascota';
 
 @Component({
   selector: 'app-mascota',
@@ -8,6 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class MascotaComponent implements OnInit {
 
   constructor() { }
+
+  mascota:Mascota={
+    nombre: '',
+    Edad: 0,
+    imagen: '',
+    Sexo: '',
+    Tamanio:'',
+  };
 
   ngOnInit() {
   }

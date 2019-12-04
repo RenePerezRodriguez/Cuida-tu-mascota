@@ -1,1 +1,56 @@
-<p>mascota works!</p>
+<br>  
+<div class="row">  
+    <div class="col-md-4 offset-md-2">
+        <div class="card">
+            <div class="card-body">
+                <form action="">
+                    <div class="form-group">
+                        <input type="text" name="name" [(ngModel)]="mascota.nombre" placeholder="Nombre de la mascota" class="form-control" autofocus required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Edad" [(ngModel)]="mascota.edad" placeholder="Edad" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="Imagen" [(ngModel)]="mascota.imagen" placeholder="Imagen" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <select [(ngModel)]="mascota.sexo" class="form-control" name="sexo">
+                            <option value="0">Seleccione un Sexo</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <select [(ngModel)]="mascota.tamanio" class="form-control" name="tamaño" required>
+                            <option value="Pequeno">Pequeño</option>
+                            <option value="Mediano">Mediano</option>
+                            <option value="Grande">Grande</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button class="btn btn-success btn-block" (click)="edit ? updateGame() : saveNewGame()">Guardar</button>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="" class="btn btn-danger btn-block">Cancelar</a>   
+                        </div>
+                        
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col-md-4">
+        <div class="card card-body text-center">
+            <img [src]="mascota.imagen == '' ? '/assets/noimage.png' : mascota.imagen" alt="No Image" class="card-img-top">
+            <h3> {{mascota.nombre == '' ? 'Nombre de tu mascota' : mascota.nombre}}</h3>
+            <p>{{mascota.edad == '' ? 'Edad' : mascota.edad}}</p>
+            <!--<p>{{game.created_at | date: 'yyyy-MM-dd'}}</p>-->
+            <p>{{mascota.sexo == '' ? 'Sexo' : mascota.sexo}}</p>
+            <p>{{mascota.tamanio == '' ? 'Tamaño' : mascota.tamanio}}</p>
+        </div>
+    </div>
+</div>

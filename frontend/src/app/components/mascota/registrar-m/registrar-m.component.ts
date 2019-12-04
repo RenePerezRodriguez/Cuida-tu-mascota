@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Mascota } from 'src/app/interfaces/mascota'
+import { Mascota } from 'src/app/interfaces/mascota';
 
 @Component({
   selector: 'app-registrar-m',

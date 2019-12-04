@@ -1,3 +1,15 @@
+/*No le toque este estilo manito*/
+@font-face {
+  font-family: "OpenSans";
+  font-style: normal;
+  src: local("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf"),local(OpenSans-Regular),url("app/Template/doglife/fonts/OpenSans/OpenSans-Regular.ttf");
+}
+.OpenSans{
+  font-family: "OpenSans";
+}
+
+
+
 /**
  * 01/28/2016
  * This pen is years old, and watching at the code after all
