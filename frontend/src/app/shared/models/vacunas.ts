@@ -1,4 +1,4 @@
-export interface VacunasI {
+export interface VacunaI {
     id?: string;
 
     nombre?: string;
