@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   public nombreUsuario = '';
   public email = '';
   public password = '';
+  public imagen='';
   uploadPercent: Observable<number>;
   urlImage: Observable<string>;
 
@@ -28,11 +29,14 @@ export class RegisterComponent implements OnInit {
   onUpload(e) {
     const id = Math.random().toString(36).substring(2);
     const file = e.target.files[0];
+    this.imagen=e.target.value;
     const filePath = `uploads/profile_${id}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath, file);
     this.uploadPercent = task.percentageChanges();
     task.snapshotChanges().pipe(finalize(() => this.urlImage = ref.getDownloadURL())).subscribe();
+
+    console.log(this.imagen)
   }
 
   onAddUser() {

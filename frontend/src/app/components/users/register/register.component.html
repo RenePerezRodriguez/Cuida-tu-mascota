@@ -35,8 +35,8 @@
 
                   
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" accept=".png, .jpg" (change)="onUpload($event)">
-                    <label class="custom-file-label" for="customFile">Elige una imagen</label>
+                    <input type="file" class="custom-file-input" accept=".png, .jpg" (change)="onUpload($event)" multiple>
+                    <label class="custom-file-label" for="customFile">{{urlImage == null ? 'Elegir una imagen' : imagen}}</label>
                   </div>
 
                 </div>

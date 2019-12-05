@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { DataApiService } from '../../../shared/services/data-api.service';
 import { MascotaI } from '../../../shared/models/mascota';
 import { NgForm } from '@angular/forms';
+import { Mascota } from 'src/app/interfaces/mascota';
 
 @Component({
   selector: 'app-modal-mascota',
@@ -16,6 +17,15 @@ export class ModalMascotaComponent implements OnInit {
   ngOnInit() {
   }
 
+  public imagen='';
+  mascota:Mascota={
+    nombre: '',
+    Edad: 0,
+    imagen: '',
+    Sexo: '',
+    Tamanio:'',
+  };
+
   onSaveMascota(mascotaForm: NgForm): void {
     if (mascotaForm.value.id == null) {
       // New
@@ -27,6 +37,22 @@ export class ModalMascotaComponent implements OnInit {
     }
     mascotaForm.resetForm();
     this.btnClose.nativeElement.click();
+  }
+
+
+  localUrl: any[];
+  showPreviewImage(event: any) 
+  {
+    if (event.target.files && event.target.files[0]) 
+    {
+      var reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.localUrl = event.target.result;
+        this.mascota.imagen=event.target.result;
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+      
   }
 
 }
