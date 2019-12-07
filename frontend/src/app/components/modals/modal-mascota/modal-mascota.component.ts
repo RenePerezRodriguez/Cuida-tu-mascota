@@ -26,16 +26,18 @@ export class ModalMascotaComponent implements OnInit {
     Tamanio:'',
   };
 
-  onSaveMascota(mascotaForm: NgForm): void {
-    if (mascotaForm.value.id == null) {
+  mascotaForm: NgForm;
+
+  onSaveMascota(): void {
+    if (this.mascotaForm.value.id == null) {
       // New
-      mascotaForm.value.userUid = this.userUid;
-      this.dataApi.addMascota(mascotaForm.value);
+      this.mascotaForm.value.userUid = this.userUid;
+      this.dataApi.addMascota(this.mascotaForm.value);
     } else {
       // Update
-      this.dataApi.updateMascota(mascotaForm.value);
+      this.dataApi.updateMascota(this.mascotaForm.value);
     }
-    mascotaForm.resetForm();
+    this.mascotaForm.resetForm();
     this.btnClose.nativeElement.click();
   }
 
