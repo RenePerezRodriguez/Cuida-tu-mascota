@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
 import { UserInterface } from '../../../shared/models/user';
-import { DataApiService } from '../../../shared/services/data-api.service';
 
+import { DataApiService } from '../../../shared/services/data-api.service';
+import { MascotaI } from '../../../shared/models/mascota';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 import {NgForm} from '@angular/forms';
 
-import { from } from 'rxjs';
-import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,8 +17,9 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private authService: AuthService, private route: ActivatedRoute, private dataApi: DataApiService) {
+  constructor(private dataApi: DataApiService, private authService: AuthService) {
    }
+  private mascotas: MascotaI[];
   private users: UserInterface[];
   public isAdmin: any = null;
   public userUid: string = null;
@@ -31,7 +32,9 @@ export class ProfileComponent implements OnInit {
 
   public providerId = 'null';
   ngOnInit() {
+    this.getListMascotas();
     this.getCurrentUser();
+
     this.authService.isAuth().subscribe(user => {
       if (user) {
         this.user.nombreUsuario = user.displayName;
@@ -41,6 +44,7 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
+
   getCurrentUser() {
     this.authService.isAuth().subscribe(auth => {
       if (auth) {
@@ -48,27 +52,27 @@ export class ProfileComponent implements OnInit {
         this.authService.isUserAdmin(this.userUid).subscribe(userRole => {
           this.isAdmin = Object.assign({}, userRole.roles).hasOwnProperty('admin');
           // this.isAdmin = true;
-        });
+        })
       }
-    });
+    })
   }
-  getListUsers() {
-    this.dataApi.getAllUsers()
-      .subscribe(users => {
-        this.users = users;
+  getListMascotas() {
+    this.dataApi.getAllMascotas()
+      .subscribe(mascotas => {
+        this.mascotas = mascotas;
       });
   }
 
-  onDeleteUser(idUser: string): void {
+  onDeleteMascota(idMascota: string): void {
     const confirmacion = confirm('Are you sure?');
     if (confirmacion) {
-      this.dataApi.deleteUser(idUser);
+      this.dataApi.deleteMascota(idMascota);
     }
   }
 
-  onPreUpdateUser(user: UserInterface) {
-    console.log('USER', user);
-    this.dataApi.selectedUser = Object.assign({}, user);
+  onPreUpdateMascota(mascota: MascotaI) {
+    console.log('MASCOTA', mascota);
+    this.dataApi.selectedMascota = Object.assign({}, mascota);
   }
 }
 

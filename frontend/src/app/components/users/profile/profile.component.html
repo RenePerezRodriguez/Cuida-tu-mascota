@@ -1,4 +1,3 @@
-<section>
   <section id="profile" class="container">
     <div class="row mt-5">
       <div class="offset-lg-4 col-lg-4 col-sm-6 col-12 main-section text-center card">
@@ -10,18 +9,18 @@
           <div class="col-12">
             <img [src]="user.photoUrl == null ? '/assets/noimage.png' : user.photoUrl"
               class="card-img-top rounded-circle img-thumbnail" alt="profile">
-            <h6 *ngIf="providerId != 'password'">{{user.codUser}}</h6>
-            <h6>{{user.nombreUsuario}}</h6>
+            <h6 *ngIf="providerId != 'password'">{{user.nombreUsuario}}</h6>
+    
 
             <h6>{{user.email}}</h6>
             <hr>
             <hr>
             <span>
               <button class="btn btn-primary" data-toggle="modal" data-target="#modalMascota">Mascota</button>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modalConsejo">Consejo</button>
+              <!--<button class="btn btn-primary" data-toggle="modal" data-target="#modalConsejo">Consejo</button>
               <button class="btn btn-primary" data-toggle="modal" data-target="#modalMascota">Horario</button>
               <button class="btn btn-primary" data-toggle="modal" data-target="#modalMascota">Vacuna</button>
-              <button class="btn btn-primary" data-toggle="modal" data-target="#modalMascota">Reserva</button>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modalMascota">Reserva</button>-->
             </span>
             <br>
           </div>
@@ -29,10 +28,12 @@
       </div>
     </div>
   </section>
-</section>
+
+
+
 
 <app-modal-mascota [userUid]="userUid"></app-modal-mascota>
-<app-modal-consejo [userUid]="userUid"></app-modal-consejo>
+<!--<app-modal-consejo [userUid]="userUid"></app-modal-consejo>-->
 <!--<app-modal-horario [userUid]="userUid"></app-modal-horario>-->
 <!--<app-modal-vacuna [userUid]="userUid"></app-modal-vacuna>-->
 <!--<app-modal-reserva [userUid]="userUid"></app-modal-reserva>-->
